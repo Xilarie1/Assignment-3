@@ -259,7 +259,7 @@ const greetings = [
   "Ona pomachała i powiedziała cześć z uśmiechem.",
   "Good afternoon gentlemen!",
 ];
-
+// object med key value pairings slik at jeg kan bruke typen hallo til å gi meg riktig språk
 function helloChecker(text) {
   const helloWords = {
     hello: "engelsk",
@@ -271,6 +271,7 @@ function helloChecker(text) {
   };
 
   const words = text.toLowerCase().match(/\b\w+\b/g);
+  // regex for å bare finne ord fjerner spesielle tegn og mellomrom og finner alle eksempler ikke bare første
 
   for (let i = 0; i < words.length; i++) {
     const word = words[i];
@@ -280,7 +281,9 @@ function helloChecker(text) {
   }
   return "Ingen HELLO oppdaget.";
 }
+// sjekker alle ord som har blitt hentet ut fra words og sjekker keyen i objektet og gir ut verdien
 
 for (let i = 0; i < greetings.length; i++) {
   console.log(helloChecker(greetings[i]));
 }
+// kjører funksjonen mot greetings arrayet
