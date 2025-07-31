@@ -126,8 +126,16 @@ Legg til en andre parameter i funksjonen som bestemmer hvor mange sider terninge
 diceRoller(5, 20) skal returnere et array med 5 tilfeldige tall fra 1-20.
 
 ******************************************************************************/
+function diceRoller1(count) {
+  let results = [];
+  for (let i = 0; i < count; i++) {
+    let roll = Math.ceil(Math.random() * 6);
+    results.push(roll);
+  }
+  return results;
+}
 
-function diceRoller(count, sides) {
+function diceRoller2(count, sides) {
   let results = [];
 
   for (let i = 0; i < count; i++) {
@@ -137,7 +145,8 @@ function diceRoller(count, sides) {
 
   return results;
 }
-console.log(diceRoller(5, 20));
+console.log(diceRoller2(5, 20));
+console.log(diceRoller1(6));
 
 /******************************************************************************
 3.
@@ -164,17 +173,18 @@ skal returnere:
 
 ******************************************************************************/
 
-function cleanStrings(array) {
+function cleanText(array) {
   const cleaned = [];
 
   for (let word of array) {
     cleaned.push(word.trim().toLowerCase());
   }
-
+  // removes whitespace, turns everything to lowercase then pushes the words to the empty cleaned array
   return cleaned.join(" ");
+  // combines everything from the cleaned array with a space between
 }
 console.log(
-  cleanStrings([" thIS", "teXt  ", " nEeds ", "to", "BE", "cleANED   ", " Up"])
+  cleanText([" thIS", "teXt  ", " nEeds ", "to", "BE", "cleANED   ", " Up"])
 );
 
 /******************************************************************************
